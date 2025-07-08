@@ -12,25 +12,20 @@
     }
 
     body {
-      background: #121212;
+      background: #000000; /* fully black background */
       color: #e0e0e0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    /* Loading Screen */
     #loading-screen {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #ffffff; /* white background */
+      background-color: #ffffff; /* white loading screen */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -43,13 +38,24 @@
       height: auto;
     }
 
-    /* Rainbow Wiggle Header */
+    main {
+      display: none;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1em;
+    }
+
     header {
       display: flex;
       gap: 0.05em;
       font-size: 3.5rem;
       font-weight: bold;
-      margin-bottom: 0.4em;
+      margin-bottom: 0.6em;
     }
 
     header span {
@@ -63,27 +69,15 @@
     }
 
     @keyframes rainbow {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 100% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     @keyframes wave {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      25% {
-        transform: translateY(-10px);
-      }
-      50% {
-        transform: translateY(5px);
-      }
-      75% {
-        transform: translateY(-5px);
-      }
+      0%, 100% { transform: translateY(0); }
+      25% { transform: translateY(-10px); }
+      50% { transform: translateY(5px); }
+      75% { transform: translateY(-5px); }
     }
 
     header span:nth-child(1) { animation-delay: 0s; }
@@ -101,16 +95,19 @@
     p {
       font-size: 1.2rem;
       max-width: 600px;
-      margin: 0 auto 1.5em;
-      line-height: 1.5;
+      margin-bottom: 2em;
       color: #bbb;
+      line-height: 1.5;
+    }
+
+    .gif-container {
+      margin-bottom: 2em;
     }
 
     .gif-container img {
-      max-width: 100%;
+      max-width: 90%;
       width: 300px;
       height: auto;
-      margin-bottom: 2em;
       border-radius: 8px;
     }
 
@@ -128,17 +125,26 @@
 
     a:hover {
       background-color: #ff3c3c;
-      color: #121212;
+      color: #000000;
     }
 
     footer {
-      margin-top: auto;
-      padding: 1.5em 1em;
+      margin-top: 2em;
       font-size: 0.9rem;
       color: #555;
       border-top: 1px solid #333;
+      padding-top: 1em;
+      width: 100%;
       max-width: 600px;
-      width: 90%;
+    }
+
+    footer a {
+      color: #777;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #ff3c3c;
     }
   </style>
 </head>
@@ -148,44 +154,42 @@
     <img src="loading.gif" alt="Loading..." />
   </div>
 
-  <!-- Main Site Content -->
-  <main style="display: none;">
+  <!-- Main Site -->
+  <main>
     <header>
       <span>B</span><span>a</span><span>d</span><span>G</span><span>a</span><span>m</span><span>e</span><span>s</span><span>N</span><span>e</span><span>t</span>
     </header>
 
-    <p>Welcome to BadGamesNet — where games are so bad, they might actually be good. Follow our journey and play our creations!</p>
+    <p>Welcome to BadGamesNet</p>
 
     <div class="gif-container">
       <img src="wiggle.gif" alt="Wiggling GIF" />
     </div>
 
     <div>
-      <a href="https://github.com/badgamesnet" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://twitter.com/badgamesnet" target="_blank" rel="noopener">Twitter</a>
-      <a href="https://instagram.com/badgamesnet" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://youtube.com/@badgamesnet" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://github.com/badgamesnet" target="_blank">GitHub</a>
+      <a href="https://twitter.com/badgamesnet" target="_blank">Twitter</a>
+      <a href="https://instagram.com/badgamesnet" target="_blank">Instagram</a>
+      <a href="https://youtube.com/@badgamesnet" target="_blank">YouTube</a>
     </div>
 
     <footer>
       <div>© 2025 BadGamesNet. All rights reserved.</div>
-      <div>Contact: <a href="mailto:contact@verylongdomain.name">contact@verylongdomain.name</a></div>
+      <div>Contact: <a href="mailto:badgamesnet@gmail.com">EMAIL</a></div>
     </footer>
   </main>
 
   <script>
-    // Show loading screen then fade to main content
     window.addEventListener('load', () => {
       setTimeout(() => {
-        const loadingScreen = document.getElementById('loading-screen');
-        loadingScreen.style.opacity = '0';
+        const loading = document.getElementById('loading-screen');
+        loading.style.opacity = '0';
         setTimeout(() => {
-          loadingScreen.style.display = 'none';
+          loading.style.display = 'none';
           const main = document.querySelector('main');
           main.style.display = 'flex';
-          main.style.flexDirection = 'column';
         }, 1000);
-      }, 2000); // adjust delay as needed
+      }, 2000);
     });
   </script>
 </body>
