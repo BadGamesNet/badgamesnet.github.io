@@ -5,44 +5,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BadGamesNet</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background: #121212;
       color: #e0e0e0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
       align-items: center;
       justify-content: center;
       text-align: center;
     }
 
+    /* Loading Screen */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff; /* white background */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 1s ease;
+    }
+
+    #loading-screen img {
+      width: 150px;
+      height: auto;
+    }
+
+    /* Rainbow Wiggle Header */
     header {
+      display: flex;
+      gap: 0.05em;
       font-size: 3.5rem;
       font-weight: bold;
       margin-bottom: 0.4em;
-      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    }
+
+    header span {
+      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
+      background-size: 1000% 100%;
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      animation: wiggle 2s infinite ease-in-out;
+      animation: wave 2s infinite ease-in-out, rainbow 6s linear infinite;
+      display: inline-block;
     }
 
-    @keyframes wiggle {
-      0%, 100% { transform: translateY(0); }
-      25% { transform: translateY(-5px); }
-      50% { transform: translateY(5px); }
-      75% { transform: translateY(-3px); }
+    @keyframes rainbow {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
     }
+
+    @keyframes wave {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      25% {
+        transform: translateY(-10px);
+      }
+      50% {
+        transform: translateY(5px);
+      }
+      75% {
+        transform: translateY(-5px);
+      }
+    }
+
+    header span:nth-child(1) { animation-delay: 0s; }
+    header span:nth-child(2) { animation-delay: 0.1s; }
+    header span:nth-child(3) { animation-delay: 0.2s; }
+    header span:nth-child(4) { animation-delay: 0.3s; }
+    header span:nth-child(5) { animation-delay: 0.4s; }
+    header span:nth-child(6) { animation-delay: 0.5s; }
+    header span:nth-child(7) { animation-delay: 0.6s; }
+    header span:nth-child(8) { animation-delay: 0.7s; }
+    header span:nth-child(9) { animation-delay: 0.8s; }
+    header span:nth-child(10) { animation-delay: 0.9s; }
+    header span:nth-child(11) { animation-delay: 1s; }
 
     p {
       font-size: 1.2rem;
       max-width: 600px;
-      margin: 0 auto 2em;
+      margin: 0 auto 1.5em;
       line-height: 1.5;
       color: #bbb;
+    }
+
+    .gif-container img {
+      max-width: 100%;
+      width: 300px;
+      height: auto;
+      margin-bottom: 2em;
+      border-radius: 8px;
     }
 
     a {
@@ -71,39 +140,53 @@
       max-width: 600px;
       width: 90%;
     }
-
-    .footer-links {
-      margin: 0.5em 0 0;
-    }
-
-    .footer-links a {
-      color: #777;
-      text-decoration: none;
-      margin: 0 0.5em;
-      font-size: 0.9rem;
-    }
-
-    .footer-links a:hover {
-      color: #ff3c3c;
-    }
   </style>
 </head>
 <body>
-  <header>BadGamesNet</header>
-  <p>Welcome to BadGamesNet — where games are so bad, they might actually be good. Follow our journey and play our creations!</p>
-  <div>
-    <a href="https://github.com/badgamesnet" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://twitter.com/badgamesnet" target="_blank" rel="noopener">Twitter</a>
-    <a href="https://instagram.com/badgamesnet" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://youtube.com/@badgamesnet" target="_blank" rel="noopener">YouTube</a>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <img src="loading.gif" alt="Loading..." />
   </div>
-  <footer>
-    <div>© 2025 BadGamesNet. All rights reserved.</div>
-    <div>Contact: <a href="mailto:contact@verylongdomain.name">contact@verylongdomain.name</a></div>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms of Service</a>
+
+  <!-- Main Site Content -->
+  <main style="display: none;">
+    <header>
+      <span>B</span><span>a</span><span>d</span><span>G</span><span>a</span><span>m</span><span>e</span><span>s</span><span>N</span><span>e</span><span>t</span>
+    </header>
+
+    <p>Welcome to BadGamesNet — where games are so bad, they might actually be good. Follow our journey and play our creations!</p>
+
+    <div class="gif-container">
+      <img src="wiggle.gif" alt="Wiggling GIF" />
     </div>
-  </footer>
+
+    <div>
+      <a href="https://github.com/badgamesnet" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://twitter.com/badgamesnet" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://instagram.com/badgamesnet" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://youtube.com/@badgamesnet" target="_blank" rel="noopener">YouTube</a>
+    </div>
+
+    <footer>
+      <div>© 2025 BadGamesNet. All rights reserved.</div>
+      <div>Contact: <a href="mailto:contact@verylongdomain.name">contact@verylongdomain.name</a></div>
+    </footer>
+  </main>
+
+  <script>
+    // Show loading screen then fade to main content
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+          const main = document.querySelector('main');
+          main.style.display = 'flex';
+          main.style.flexDirection = 'column';
+        }, 1000);
+      }, 2000); // adjust delay as needed
+    });
+  </script>
 </body>
 </html>
