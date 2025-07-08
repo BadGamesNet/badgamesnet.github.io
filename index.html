@@ -5,180 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BadGamesNet</title>
   <style>
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #000000; /* fully black background */
-      color: #e0e0e0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    #loading-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      background: #000;
       height: 100%;
-      background-color: #ffffff; /* white loading screen */
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 9999;
-      transition: opacity 1s ease;
     }
 
-    #loading-screen img {
-      width: 150px;
-      height: auto;
-    }
-
-    main {
-      display: none;
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1em;
-    }
-
-    header {
-      display: flex;
-      gap: 0.05em;
-      font-size: 3.5rem;
-      font-weight: bold;
-      margin-bottom: 0.6em;
-    }
-
-    header span {
-      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
-      background-size: 1000% 100%;
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      animation: wave 2s infinite ease-in-out, rainbow 6s linear infinite;
-      display: inline-block;
-    }
-
-    @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-
-    @keyframes wave {
-      0%, 100% { transform: translateY(0); }
-      25% { transform: translateY(-10px); }
-      50% { transform: translateY(5px); }
-      75% { transform: translateY(-5px); }
-    }
-
-    header span:nth-child(1) { animation-delay: 0s; }
-    header span:nth-child(2) { animation-delay: 0.1s; }
-    header span:nth-child(3) { animation-delay: 0.2s; }
-    header span:nth-child(4) { animation-delay: 0.3s; }
-    header span:nth-child(5) { animation-delay: 0.4s; }
-    header span:nth-child(6) { animation-delay: 0.5s; }
-    header span:nth-child(7) { animation-delay: 0.6s; }
-    header span:nth-child(8) { animation-delay: 0.7s; }
-    header span:nth-child(9) { animation-delay: 0.8s; }
-    header span:nth-child(10) { animation-delay: 0.9s; }
-    header span:nth-child(11) { animation-delay: 1s; }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-bottom: 2em;
-      color: #bbb;
-      line-height: 1.5;
-    }
-
-    .gif-container {
-      margin-bottom: 2em;
-    }
-
-    .gif-container img {
-      max-width: 90%;
-      width: 300px;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    a {
-      text-decoration: none;
-      color: #ff3c3c;
-      font-weight: 600;
-      border: 2px solid #ff3c3c;
-      padding: 0.6em 1.2em;
-      border-radius: 6px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      margin: 0.4em 0.5em;
-      display: inline-block;
-    }
-
-    a:hover {
-      background-color: #ff3c3c;
-      color: #000000;
-    }
-
-    footer {
-      margin-top: 2em;
-      font-size: 0.9rem;
-      color: #555;
-      border-top: 1px solid #333;
-      padding-top: 1em;
-      width: 100%;
-      max-width: 600px;
-    }
-
-    footer a {
-      color: #777;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #ff3c3c;
+    img {
+      max-width: 100%;
+      max-height: 100%;
     }
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div id="loading-screen">
-    <img src="loading.gif" alt="Loading..." />
-  </div>
-
-  <!-- Main Site -->
-  <main>
-    <header>
-      <span>B</span><span>a</span><span>d</span><span>G</span><span>a</span><span>m</span><span>e</span><span>s</span><span>N</span><span>e</span><span>t</span>
-    </header>
-    <div class="gif-container">
-      <img src="wiggle.gif" alt="Wiggling GIF" />
-    </div>
-    <footer>
-      <div>© 2025 BadGamesNet. All rights reserved.</div>
-    </footer>
-  </main>
-
-  <script>
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const loading = document.getElementById('loading-screen');
-        loading.style.opacity = '0';
-        setTimeout(() => {
-          loading.style.display = 'none';
-          const main = document.querySelector('main');
-          main.style.display = 'flex';
-        }, 1000);
-      }, 2000);
-    });
-  </script>
+  <img src="wiggle.gif" alt="BadGamesNet Animation">
 </body>
 </html>
